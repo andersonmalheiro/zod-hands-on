@@ -1,4 +1,4 @@
-import { parseUser, User } from "./schema-type";
+import { parseUser, UserOutput } from "./schema-type";
 
 describe("Schema test", () => {
   it("should throw an error when parsing the age", () => {

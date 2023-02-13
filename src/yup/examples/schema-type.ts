@@ -11,4 +11,3 @@ const task: Task = {
   age: 12,
   name: "John",
 };
-
