@@ -9,6 +9,12 @@ const PersonSchema = z.object({
   gender: z.string(),
 });
 
+type Person = z.infer<typeof PersonSchema>;
+
+export function isPerson(value: any): value is Person {
+  return value.hasOwnProperty("gender") && value.hasOwnProperty("name");
+}
+
 const ResponseSchema = z.object({
   results: z.array(PersonSchema),
 });
@@ -26,5 +32,5 @@ export async function fetchRandomPerson() {
 
   console.log("parsed", JSON.stringify(parsedResponse, null, 2));
 
-  return parsedResponse;
+  return parsedResponse.results[0];
 }

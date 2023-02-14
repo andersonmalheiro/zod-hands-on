@@ -1,9 +1,11 @@
-import { fetchRandomPerson } from './external-api';
+import { fetchRandomPerson, isPerson } from "./external-api";
 
-describe('External API', () => {
-    it('should return the data', async () => {
-        const result = await fetchRandomPerson();
+describe("External API", () => {
+  it("should return the data", async () => {
+    const result = await fetchRandomPerson();
 
-        expect(result).toBeTruthy();
-    });
+    expect(result).toHaveProperty("name");
+    expect(result).toHaveProperty("gender");
+    expect(isPerson(result)).toEqual(true);
+  });
 });
